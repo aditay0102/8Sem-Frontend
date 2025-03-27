@@ -25,8 +25,8 @@ const Login = () => {
 
     axios.post(`${address}/Login`, user)
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        
+        console.log(res.data.success);
         Cookies.set('token', res.data.accessToken, { expires: 7 });
         
         if (res.data.success) {
@@ -59,11 +59,12 @@ const Login = () => {
 
           }
         } 
-        
+      
       })
       .catch((error) => {
-        toast.error("something is wrong")
-        console.error("There was an error!", error);
+        toast.error(error.response.data.message);
+      
+        
       });
   }
 
@@ -76,11 +77,11 @@ const Login = () => {
           <div class="space-y-6">
             <div>
               <label class="text-gray-800 text-sm mb-2 block">Email Id</label>
-              <input name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} type="text" class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter email" />
+              <input name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} type="text" class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter email" required />
             </div>
             <div>
               <label class="text-gray-800 text-sm mb-2 block">Password</label>
-              <input name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} type="password" class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter password" />
+              <input name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} type="password" class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter password" required />
             </div>
 
             <div class="flex items-center">
