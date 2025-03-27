@@ -10,6 +10,7 @@ const UserChat = () => {
     const messagesEndRef = useRef(null); // Ref for the messages container
     
     let location = useLocation();
+    let address = process.env.REACT_APP_ADDRESS;
 
     let userName = localStorage.getItem('userName');
 
@@ -21,7 +22,7 @@ const UserChat = () => {
         }
        
         // Establish socket connection when component mounts
-        const newSocket = io("http://localhost:5000"); // Replace with your server URL
+        const newSocket = io(`${address}`); // Replace with your server URL
         setSocket(newSocket);
 
         
