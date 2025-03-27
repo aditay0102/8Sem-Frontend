@@ -71,7 +71,7 @@ const Login = () => {
     <div class="flex flex-col justify-center font-[sans-serif] sm:h-screen p-4">
       <div class="max-w-md w-full mx-auto border border-gray-300 rounded-2xl p-8">
        
-      
+        <button onClick={()=>{console.log(address)}}>click</button>
         <form onSubmit={handleSubmit}>
           <div class="space-y-6">
             <div>
