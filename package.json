@@ -2,7 +2,7 @@
   "name": "my-project",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://eightsem-backend.onrender.com",
+ 
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "axios": "^1.7.9",
